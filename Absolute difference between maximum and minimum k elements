@@ -1,0 +1,12 @@
+class Solution:
+    def absDifference(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        largest_sum=0
+        smallest_sum=0
+        end=len(nums)-1
+        for i in range(0,k):
+            smallest_sum+=nums[i]
+        for j in range(0,k):
+            largest_sum+=nums[end]
+            end-=1   
+        return abs(largest_sum-smallest_sum)
