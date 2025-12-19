@@ -1,0 +1,9 @@
+class Solution:
+    def findMoves(self, chairs, passengers):
+        moves=0
+        chairs.sort()
+        passengers.sort()
+        for c,p in zip(chairs,passengers):
+            moves+=abs(c-p)
+        return moves
+        
