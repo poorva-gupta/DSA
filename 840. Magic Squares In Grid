@@ -1,0 +1,36 @@
+class Solution:
+    def numMagicSquaresInside(self, grid):
+        m, n = len(grid), len(grid[0])
+        ans = 0
+
+        for i in range(m - 2):
+            for j in range(n - 2):
+
+                nums = []
+                for r in range(i, i + 3):
+                    for c in range(j, j + 3):
+                        nums.append(grid[r][c])
+
+               
+                if sorted(nums) != [1,2,3,4,5,6,7,8,9]:
+                    continue
+
+               
+                if (sum(grid[i][j:j+3]) != 15 or
+                    sum(grid[i+1][j:j+3]) != 15 or
+                    sum(grid[i+2][j:j+3]) != 15):
+                    continue
+
+                if (grid[i][j] + grid[i+1][j] + grid[i+2][j] != 15 or
+                    grid[i][j+1] + grid[i+1][j+1] + grid[i+2][j+1] != 15 or
+                    grid[i][j+2] + grid[i+1][j+2] + grid[i+2][j+2] != 15):
+                    continue
+
+
+                if (grid[i][j] + grid[i+1][j+1] + grid[i+2][j+2] != 15 or
+                    grid[i][j+2] + grid[i+1][j+1] + grid[i+2][j] != 15):
+                    continue
+
+                ans += 1
+
+        return ans
