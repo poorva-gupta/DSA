@@ -1,0 +1,22 @@
+class Solution:
+    def sumFourDivisors(self, nums: List[int]) -> int:
+        count=0
+        for n in nums:
+            stack=[]
+            for i in range(1,int(n**0.5)+1):
+                if n%i==0:
+                    stack.append(i)
+                    if i!=n//i:
+                        stack.append(n//i)
+                if len(stack)>4:
+                    break
+            if len(stack)==4:
+                count+=sum(stack)
+        return count
+                    
+                
+
+
+             
+
+ 
