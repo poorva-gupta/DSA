@@ -1,0 +1,14 @@
+from collections import Counter
+class Solution:
+    def sumOfUnique(self, nums: List[int]) -> int:
+        freq=Counter(nums)
+        count=0
+        for num,cnt in freq.items():
+            if cnt==1:
+                count+=num
+        return count
+
+        
+        
+
+        
