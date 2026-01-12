@@ -1,0 +1,12 @@
+from collections import Counter
+class Solution:
+    def findLonely(self, nums: List[int]) -> List[int]:
+        freq=Counter(nums)
+        stack=[]
+    
+        for num,cnt in freq.items():
+            if cnt==1 and num-1 not in freq and num+1 not in freq:
+                stack.append(num)
+        return stack
+
+        
