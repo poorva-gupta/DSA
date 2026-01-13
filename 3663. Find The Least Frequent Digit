@@ -1,0 +1,11 @@
+from collections import Counter
+class Solution:
+    def getLeastFrequentDigit(self, n: int) -> int:
+        stack=[]
+        freq=Counter(str(n))
+        min_freq=min(freq.values())
+        for num,cnt in freq.items():
+            if cnt==min_freq:
+                stack.append(int(num))
+        return min(stack)
+        
