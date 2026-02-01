@@ -1,0 +1,11 @@
+class Solution:
+    def minimumCost(self, nums: List[int]) -> int:
+        first=nums[0]
+        min_1=sorted(nums[1:])
+        return first+min_1[0]+min_1[1]
+       
+
+
+       
+        
+        
